@@ -1,108 +1,63 @@
-<!-- osa:header:start -->
+<div align="center">
+
 # OSA Share Admin
 
-Moderation panel for OSA Share. Open alternative to **Google Drive admin**, part of the [Open Software Alliance](https://github.com/OpenSoftwareAlliance) suite.
+**Moderation panel for OSA Share.**
 
-| | |
-|---|---|
-| Upstream | [Moe Panel](https://github.com/pomf/MoePanel), kept in sync with this repository |
-| License | MIT |
+Open source alternative to **Google Drive admin**. Part of the [Open Software Alliance](https://github.com/OpenSoftwareAlliance) suite.
 
-Credit for the original work goes to the Moe Panel authors. Everything below this header is the upstream README.
+</div>
 
 ---
-<!-- osa:header:end -->
-# NOTICE!
-This code should be seen as deprecated until updated, will probably not work correctly with newer versions of Uguu. 
 
-# Moe Panel
- Admin panel for Uguu and Pomf which makes it easier to remove and blacklist files.
- 
-# Features
-* Information about number of files uploaded & storage used.
-* Search files uploaded by hash/filename/etc.
-* Blacklist or delete files.
-* Blacklist or delete all files related to IP.
-* Search and manage blacklist database.
+## Features
 
-More features such as settings will come in a later release.
- 
-# Screenshots
-<img width="548" alt="Screenshot 2021-07-07 at 19 55 58" src="https://user-images.githubusercontent.com/2499891/124806933-87e7cc80-df5d-11eb-8715-c9bb184b8b8a.png">
-<img width="1680" alt="Screenshot 2021-07-07 at 19 55 25" src="https://user-images.githubusercontent.com/2499891/124806958-8dddad80-df5d-11eb-8104-7685fd349f2c.png">
-<img width="1678" alt="Screenshot 2021-07-07 at 19 58 39" src="https://user-images.githubusercontent.com/2499891/124807158-c4b3c380-df5d-11eb-873f-57a0e8df5428.png">
-<img width="1680" alt="Screenshot 2021-07-07 at 19 55 40" src="https://user-images.githubusercontent.com/2499891/124806978-933af800-df5d-11eb-9e58-ba2202c79aea.png">
+- Upload stats and storage usage
+- Search files by hash, name or IP
+- Delete or blacklist files
+- Bulk actions per uploader IP
 
-# Installation
-First of all you will need a working Uguu/Pomf installation set up, after that it's rather easy.
+## Tech stack
 
-**You need to run the latest version of Uguu/Pomf for this panel to work since it introduced some DB changes!**
+- **Current:** PHP, shares the OSA Share database
+- **Target:** Next.js + TypeScript on Cloudflare Workers (see [migration research](https://github.com/OpenSoftwareAlliance/share-admin/issues/2))
 
-#### Clone the repo
-```
-git clone https://github.com/pomf/moepanel
-```
+## Roadmap
 
-#### Edit the moepanel/static/php/settings.inc.php file
-```
-<?php
+- [Open source landscape research](https://github.com/OpenSoftwareAlliance/share-admin/issues/1)
+- [Migration research: React/Next.js + TypeScript on Cloudflare Workers](https://github.com/OpenSoftwareAlliance/share-admin/issues/2)
+- [All issues](https://github.com/OpenSoftwareAlliance/share-admin/issues)
 
-//define('MOE_DB_CONN', 'mysql:unix_socket=/tmp/mysql.sock;dbname=pomf');
-define('MOE_DB_CONN', 'sqlite:/path/to/your/uguu/or/pomf/db.sq3');
+## Self-hosting
 
-/**
- * PDO database login credentials
- */
+Installation and configuration follow the upstream project for now: see the [Moe Panel documentation](https://github.com/pomf/MoePanel#readme).
 
-/** @param string POMF_DB_NAME Database username */
-define('MOE_DB_USER', null);
-/** @param string POMF_DB_PASS Database password */
-define('MOE_DB_PASS', null);
+## The OSA suite
 
-/**
- * 'MOE_ROOT' - Root location for the Moe Panel
- * 'FILES_ROOT' - Location where uploaded files for Uguu/Pomf are stored
- * 'PU_NAME' - Pomf/uguu instance name
- * 'PU_ADDRESS' - Pomf/uguu address/[sub]domain
- * 'PU_URL' - URL where Pomf/Uguu serves files from
- * 'MOE_URL' - URL for Moe Panel
- */
-define('MOE_ROOT', '/var/www/moepanel/');
-define('FILES_ROOT', '/var/www/files/');
-define('PU_NAME', 'Uguu');
-define('PU_ADDRESS', 'uguu.se');
-define('PU_SERVE_URL', 'https://a.uguu.se/');
-define('MOE_URL', 'https://moepanel.uguu.se');
-```
+| Product | What it does | Alternative to |
+|---|---|---|
+| [OSA Pad](https://github.com/OpenSoftwareAlliance/pad) | Real-time collaborative document editor. | Google Docs |
+| [OSA Sheet](https://github.com/OpenSoftwareAlliance/sheet) | Online collaborative spreadsheet. | Google Sheets |
+| [OSA Cal](https://github.com/OpenSoftwareAlliance/cal) | Scheduling and booking pages. | Google Calendar (appointment schedules) |
+| [OSA Mail](https://github.com/OpenSoftwareAlliance/mail) | Email forwarding and hosting for custom domains. | Gmail |
+| [OSA Meet](https://github.com/OpenSoftwareAlliance/meet) | Secure peer-to-peer video meetings. | Google Meet |
+| [OSA Draw](https://github.com/OpenSoftwareAlliance/draw) | Infinite canvas whiteboard. | Google Drawings / Jamboard |
+| [OSA Drop](https://github.com/OpenSoftwareAlliance/drop) | Local file sharing in the browser. | Quick Share |
+| [OSA Share](https://github.com/OpenSoftwareAlliance/share) | Simple temporary file hosting. | Google Drive (file links) |
+| [OSA Share Admin](https://github.com/OpenSoftwareAlliance/share-admin) | Moderation panel for OSA Share. | Google Drive admin |
+| [OSA Bin](https://github.com/OpenSoftwareAlliance/bin) | Zero-knowledge encrypted pastebin. | Google Keep (secure notes) |
+| [OSA Snip](https://github.com/OpenSoftwareAlliance/snip) | Self-hosted code snippets and gists. | Google Keep (snippets) |
+| [OSA Short](https://github.com/OpenSoftwareAlliance/short) | URL shortener with analytics. | goo.gl |
+| [OSA Alias](https://github.com/OpenSoftwareAlliance/alias) | DNS-based domain redirection. | Google Domains forwarding |
+| [OSA Page](https://github.com/OpenSoftwareAlliance/page) | Link-in-bio pages. | Google Sites |
+| [OSA Feedback](https://github.com/OpenSoftwareAlliance/feedback) | Feedback boards and public roadmaps. | Google Forms (product feedback) |
+| [OSA Jam](https://github.com/OpenSoftwareAlliance/jam) | Live audio rooms. | Google Meet (audio) |
+| [OSA Micro](https://github.com/OpenSoftwareAlliance/micro) | Ready-to-use micro service APIs. | Google Cloud APIs |
+| [OSA Username](https://github.com/OpenSoftwareAlliance/username) | Check username availability on 100+ sites. | - |
+| [OSA Status](https://github.com/OpenSoftwareAlliance/status) | Uptime monitor and status page for the OSA services. | - |
 
+## License and credits
 
-#### Edit gen_pw.php and replace YOURPASSWORDHERE with a password of your liking.
-```
-<?php
-$lol = password_hash("YOURPASSWORDHERE", PASSWORD_BCRYPT);
-echo $lol;
-```
+OSA Share Admin is based on [Moe Panel](https://github.com/pomf/MoePanel). Credit for the original work goes to its authors.
 
-
-#### then execute the file and copy the output.
-```
-php gen_pw.php
-```
-
-
-
-#### Run make
-```
-cd /path/to/moe
-make
-```
-
-
-#### Insert your user into your DB.
-```
-sqlite3 /var/www/db/your_pomf_db.sq3
-INSERT INTO accounts VALUES(1,'your@email.com','PASSWORD_HASH_FROM_ABOVE',1);
-```
-
-
-**Then configure your webserver and PHP to serve from dist/ and you're good to go!**
+License: MIT. See the [LICENSE](LICENSE) file in this repository.
