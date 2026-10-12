@@ -1,3 +1,17 @@
+<!-- osa:header:start -->
+# OSA Share Admin
+
+Moderation panel for OSA Share. Open alternative to **Google Drive admin**, part of the [Open Software Alliance](https://github.com/OpenSoftwareAlliance) suite.
+
+| | |
+|---|---|
+| Upstream | [Moe Panel](https://github.com/pomf/MoePanel), kept in sync with this repository |
+| License | MIT |
+
+Credit for the original work goes to the Moe Panel authors. Everything below this header is the upstream README.
+
+---
+<!-- osa:header:end -->
 # NOTICE!
 This code should be seen as deprecated until updated, will probably not work correctly with newer versions of Uguu. 
 
@@ -92,5 +106,3 @@ INSERT INTO accounts VALUES(1,'your@email.com','PASSWORD_HASH_FROM_ABOVE',1);
 
 
 **Then configure your webserver and PHP to serve from dist/ and you're good to go!**
-
-
